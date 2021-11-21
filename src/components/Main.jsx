@@ -1,10 +1,16 @@
 import React from 'react';
+import { selectArt } from '../actions'; //named export
+import ArtList from './ArtList';
 
 const Main = () => {
 
     return(
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-         Main
+        <div className="ui container grid">
+            <div className="ui row">
+                <div className="column twelve wide">
+                    <ArtList />
+                </div>
+            </div>
         </div>
     )
 }
