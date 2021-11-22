@@ -1,15 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectArt } from '../actions';
 
 const ArtList = (props) =>{
 
     const renderArtList = () => {
+
         return(
             props.artList.map((eachItem, index) => {
                 return (
                     <div className="item" key={index}>
                         <div className="right floated content">
-                            <button className="ui button primary">
+                            <button
+                             className="ui button primary"
+                             onClick={()=> props.selectArtAction(eachItem)}>
                                 Select
                             </button>
                         </div>
@@ -31,6 +35,7 @@ const ArtList = (props) =>{
 }
 
 const mapStateToProps = (state) => {
+    console.log("state", state)
     return{
         artList: state.artsList
     }
@@ -41,7 +46,8 @@ const mapStateToProps = (state) => {
 // cause that data to eventually show up as props inside of our component.
 
 
-export default connect(mapStateToProps)(ArtList); 
+export default connect(mapStateToProps, {selectArtAction: selectArt})(ArtList); 
+//the connect function takews the action creator as 2nd parameter and pass it into our component as prop
 // function connect() {
 //     return function() {
 //       return "HI there"

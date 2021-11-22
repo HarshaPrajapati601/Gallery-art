@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectArt } from '../actions'; //named export
+import ArtDetails from './ArtDetails';
 import ArtList from './ArtList';
 
 const Main = () => {
@@ -7,8 +7,11 @@ const Main = () => {
     return(
         <div className="ui container grid">
             <div className="ui row">
-                <div className="column twelve wide">
+                <div className="column eight wide">
                     <ArtList />
+                </div>
+                <div className="column eight wide">
+                    <ArtDetails />
                 </div>
             </div>
         </div>
